@@ -1,0 +1,18 @@
+[window]
+title = "Terminal"
+dynamic_padding = true
+
+[font]
+normal = { 
+    family = "JetBrainsMono Nerd Font Mono" 
+}
+size = 13.0
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[cursor.style]
+shape = "Block"
+
+
