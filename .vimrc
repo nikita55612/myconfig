@@ -1,7 +1,10 @@
+syntax on
+filetype plugin indent on
 set number
 set relativenumber
 set termguicolors
 set background=dark
+colorscheme lunaperche
 set hidden
 set noswapfile
 set encoding=utf-8
