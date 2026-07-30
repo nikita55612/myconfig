@@ -27,7 +27,7 @@ GHOSTTY_REPO="$CONFIG_DIR/ghostty"
 YAZI_REPO="$CONFIG_DIR/yazi"
 
 # File configs
-VIMRC_FILE="$HOME/.vim/.vimrc"
+VIMRC_FILE="$HOME/.vim/vimrc"
 GITCONFIG_FILE="$HOME/.gitconfig"
 ZSHRC_FILE="$HOME/.zshrc"
 BASHRC_FILE="$HOME/.bashrc"

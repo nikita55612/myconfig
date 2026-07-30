@@ -263,8 +263,7 @@ if vim.fn.executable("recol") == 1 then
         local args = vim.split(opts.args, "%s+", { trimempty = true })
         local is_interactive_mode = vim.tbl_contains(args, "-i") or vim.tbl_contains(args, "--interactive")
         if is_interactive_mode then
-            launch_interactive_mode()
-            return
+            return launch_interactive_mode()
         end
         vim.cmd("!recol " .. opts.args)
         vim.cmd.source("~/.config/nvim/init.lua")
@@ -339,11 +338,13 @@ require("oil").setup({
 local treesitter_parsers = {
     "bash",
     "c",
-    "css",
     "csv",
     "go",
     "html",
+    "css",
     "javascript",
+    "typescript",
+    "tsx",
     "json",
     "lua",
     "make",
@@ -351,6 +352,8 @@ local treesitter_parsers = {
     "python",
     "rust",
     "toml",
+    "proto",
+    "sql",
 }
 
 if #treesitter_parsers > 0 then
@@ -373,11 +376,13 @@ local lspservers_ensure_installed = {
     "lua_ls",
     "html",
     "vtsls",
+    "emmet_ls",
     "pyright",
     "rust_analyzer",
     "gopls",
     "jsonls",
     "clangd",
+    "sqlls",
 }
 
 if #lspservers_ensure_installed > 0 then
@@ -417,35 +422,35 @@ if #lspservers_ensure_installed > 0 then
 end
 
 -- recol:start
--- Terafox
+-- No Clown Fiesta
 local function applyRecolTheme()
     vim.cmd("highlight clear")
     if vim.fn.has("syntax_on") then vim.cmd("syntax reset") end
     local P = {
-        black   = { "#2f3239", "#4e5157", "#4f5258" },
-        red     = { "#e85c51", "#eb746b", "#ec756c" },
-        green   = { "#7aa4a1", "#8eb2af", "#8fb2b0" },
-        yellow  = { "#fda47f", "#fdb292", "#fdb293" },
-        blue    = { "#5a93aa", "#73a3b7", "#74a4b7" },
-        magenta = { "#ad5c7c", "#b97490", "#ba7590" },
-        cyan    = { "#a1cdd8", "#afd4de", "#b0d5de" },
-        white   = { "#ebebeb", "#eeeeee", "#eeeeee" },
-        orange  = { "#f38068", "#f4937f", "#f5947f" },
-        pink    = { "#eaa49e", "#edb1ad", "#edb2ad" },
-        bg = { "#0f1b1d", "#152528", "#1d3337", "#254247", "#345c63" },
-        fg = { "#f5f9f9", "#e6eaea", "#acafaf", "#787a7a" },
-        sel = { "#354446", "#354446" },
+        black   = { "#151515", "#727272", "#393939" },
+        red     = { "#b46958", "#7e97ab", "#c08072" },
+        green   = { "#90a959", "#90a959", "#a1b673" },
+        yellow  = { "#f4bf75", "#f4bf75", "#f6c98a" },
+        blue    = { "#bad7ff", "#bad7ff", "#c5ddff" },
+        magenta = { "#aa759f", "#aa759f", "#b78aae" },
+        cyan    = { "#88afa2", "#88afa2", "#9abbb0" },
+        white   = { "#e1e1e1", "#afafaf", "#e6e6e6" },
+        orange  = { "#d49467", "#b9ab90", "#dba57f" },
+        pink    = { "#cba59d", "#97a3ad", "#d3b3ac" },
+        bg = { "#050505", "#101010", "#1f1f1f", "#2f2f2f", "#4b4b4b" },
+        fg = { "#eff0f3", "#e0e1e4", "#a6a7a9", "#727274" },
+        sel = { "#303031", "#303031" },
         cur = { 
-            bg = "#e6eaea",
-            fg = "#152528",
+            bg = "#e0e1e4",
+            fg = "#18191b",
         },
-        comment = "#929b9c",
-        status_line = "#0f1b1d",
+        comment = "#8d8d8f",
+        status_line = "#050505",
         diff = {
-            add = "#577877",
-            delete = "#9e4943",
-            change = "#426d7d",
-            text = "#70465a",
+            add = "#63733f",
+            delete = "#7b4a3f",
+            change = "#7f91ab",
+            text = "#6c4d66",
         }
     }
     local spec = {

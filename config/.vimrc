@@ -139,118 +139,118 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "Terafox"
+let g:colors_name = "No Clown Fiesta"
 set background=dark
 
-hi Normal        guifg=#e6eaea guibg=#152528
-hi NormalNC      guifg=#e6eaea guibg=#152528
-hi Terminal      guifg=#e6eaea guibg=#152528
-hi ColorColumn   guibg=#1d3337
-hi Conceal       guifg=#345c63
-hi Cursor        guifg=#152528 guibg=#e6eaea
-hi lCursor       guifg=#152528 guibg=#e6eaea
-hi CursorIM      guifg=#152528 guibg=#e6eaea
-hi CursorColumn  guibg=#254247
-hi CursorLine    guibg=#254247
-hi Directory     guifg=#73a3b7
-hi EndOfBuffer   guifg=#152528
-hi ErrorMsg      guifg=#e85c51
-hi VertSplit     guifg=#0f1b1d
-hi WinSeparator  guifg=#0f1b1d
-hi Folded        guifg=#787a7a guibg=#1d3337
-hi FoldColumn    guifg=#787a7a
-hi SignColumn    guifg=#787a7a
-hi Substitute    guifg=#152528 guibg=#e85c51
-hi LineNr        guifg=#787a7a
-hi CursorLineNr  guifg=#fda47f gui=bold
-hi MatchParen    guifg=#fda47f gui=bold
-hi ModeMsg       guifg=#fda47f gui=bold
-hi MoreMsg       guifg=#5a93aa gui=bold
-hi Question      guifg=#5a93aa gui=bold
-hi NonText       guifg=#345c63
-hi SpecialKey    guifg=#345c63
-hi Pmenu         guifg=#e6eaea guibg=#354446
-hi PmenuSel      guifg=#e6eaea guibg=#354446
-hi PmenuSbar     guibg=#354446
-hi PmenuThumb    guibg=#354446
-hi QuickFixLine  guibg=#254247
-hi Search        guifg=#e6eaea guibg=#354446
-hi IncSearch     guifg=#152528 guibg=#7aa4a1
-hi CurSearch     guifg=#152528 guibg=#7aa4a1
-hi StatusLine       guifg=#acafaf guibg=#0f1b1d
-hi StatusLineNC     guifg=#787a7a guibg=#0f1b1d
-hi StatusLineTerm   guifg=#acafaf guibg=#0f1b1d
-hi StatusLineTermNC guifg=#787a7a guibg=#0f1b1d
-hi TabLine       guifg=#acafaf guibg=#1d3337
-hi TabLineFill   guibg=#0f1b1d
-hi TabLineSel    guifg=#152528 guibg=#787a7a
-hi Title         guifg=#73a3b7 gui=bold
-hi Visual        guibg=#354446
-hi VisualNOS     guibg=#354446
-hi WarningMsg    guifg=#fda47f
-hi Whitespace    guifg=#254247
-hi WildMenu      guifg=#e6eaea guibg=#354446
-hi WinBar        guifg=#787a7a guibg=#152528 gui=bold
-hi WinBarNC      guifg=#787a7a guibg=#152528 gui=bold
-hi Menu          guifg=#e6eaea guibg=#152528
-hi Scrollbar     guibg=#152528
-hi Tooltip       guifg=#e6eaea guibg=#0f1b1d
+hi Normal        guifg=#e0e1e4 guibg=#101010
+hi NormalNC      guifg=#e0e1e4 guibg=#101010
+hi Terminal      guifg=#e0e1e4 guibg=#101010
+hi ColorColumn   guibg=#1f1f1f
+hi Conceal       guifg=#4b4b4b
+hi Cursor        guifg=#18191b guibg=#e0e1e4
+hi lCursor       guifg=#18191b guibg=#e0e1e4
+hi CursorIM      guifg=#18191b guibg=#e0e1e4
+hi CursorColumn  guibg=#2f2f2f
+hi CursorLine    guibg=#2f2f2f
+hi Directory     guifg=#bad7ff
+hi EndOfBuffer   guifg=#101010
+hi ErrorMsg      guifg=#b46958
+hi VertSplit     guifg=#050505
+hi WinSeparator  guifg=#050505
+hi Folded        guifg=#727274 guibg=#1f1f1f
+hi FoldColumn    guifg=#727274
+hi SignColumn    guifg=#727274
+hi Substitute    guifg=#101010 guibg=#b46958
+hi LineNr        guifg=#727274
+hi CursorLineNr  guifg=#f4bf75 gui=bold
+hi MatchParen    guifg=#f4bf75 gui=bold
+hi ModeMsg       guifg=#f4bf75 gui=bold
+hi MoreMsg       guifg=#bad7ff gui=bold
+hi Question      guifg=#bad7ff gui=bold
+hi NonText       guifg=#4b4b4b
+hi SpecialKey    guifg=#4b4b4b
+hi Pmenu         guifg=#e0e1e4 guibg=#303031
+hi PmenuSel      guifg=#e0e1e4 guibg=#303031
+hi PmenuSbar     guibg=#303031
+hi PmenuThumb    guibg=#303031
+hi QuickFixLine  guibg=#2f2f2f
+hi Search        guifg=#e0e1e4 guibg=#303031
+hi IncSearch     guifg=#101010 guibg=#90a959
+hi CurSearch     guifg=#101010 guibg=#90a959
+hi StatusLine       guifg=#a6a7a9 guibg=#050505
+hi StatusLineNC     guifg=#727274 guibg=#050505
+hi StatusLineTerm   guifg=#a6a7a9 guibg=#050505
+hi StatusLineTermNC guifg=#727274 guibg=#050505
+hi TabLine       guifg=#a6a7a9 guibg=#1f1f1f
+hi TabLineFill   guibg=#050505
+hi TabLineSel    guifg=#101010 guibg=#727274
+hi Title         guifg=#bad7ff gui=bold
+hi Visual        guibg=#303031
+hi VisualNOS     guibg=#303031
+hi WarningMsg    guifg=#f4bf75
+hi Whitespace    guifg=#2f2f2f
+hi WildMenu      guifg=#e0e1e4 guibg=#303031
+hi WinBar        guifg=#727274 guibg=#101010 gui=bold
+hi WinBarNC      guifg=#727274 guibg=#101010 gui=bold
+hi Menu          guifg=#e0e1e4 guibg=#101010
+hi Scrollbar     guibg=#101010
+hi Tooltip       guifg=#e0e1e4 guibg=#050505
 
-hi SpellBad   gui=undercurl guisp=#e85c51
-hi SpellCap   gui=undercurl guisp=#fda47f
-hi SpellLocal gui=undercurl guisp=#5a93aa
-hi SpellRare  gui=undercurl guisp=#5a93aa
+hi SpellBad   gui=undercurl guisp=#b46958
+hi SpellCap   gui=undercurl guisp=#f4bf75
+hi SpellLocal gui=undercurl guisp=#bad7ff
+hi SpellRare  gui=undercurl guisp=#bad7ff
 
-hi DiffAdd    guibg=#577877
-hi DiffChange guibg=#426d7d
-hi DiffDelete guibg=#9e4943
-hi DiffText   guibg=#70465a
+hi DiffAdd    guibg=#63733f
+hi DiffChange guibg=#7f91ab
+hi DiffDelete guibg=#7b4a3f
+hi DiffText   guibg=#6c4d66
 
-hi Comment        guifg=#929b9c
-hi Constant       guifg=#f4937f
-hi String         guifg=#7aa4a1
-hi Character      guifg=#7aa4a1
-hi Number         guifg=#f38068
-hi Boolean        guifg=#f38068
-hi Float          guifg=#f38068
-hi Identifier     guifg=#a1cdd8
-hi Function       guifg=#73a3b7
-hi Statement      guifg=#ad5c7c
-hi Conditional    guifg=#b97490
-hi Repeat         guifg=#b97490
-hi Label          guifg=#b97490
-hi Operator       guifg=#acafaf
-hi Keyword        guifg=#ad5c7c
-hi Exception      guifg=#ad5c7c
-hi PreProc        guifg=#edb1ad
-hi Include        guifg=#edb1ad
-hi Define         guifg=#edb1ad
-hi Macro          guifg=#edb1ad
-hi PreCondit      guifg=#edb1ad
-hi Type           guifg=#fda47f
-hi StorageClass   guifg=#fda47f
-hi Structure      guifg=#fda47f
-hi Typedef        guifg=#fda47f
-hi Special        guifg=#73a3b7
-hi SpecialChar    guifg=#73a3b7
-hi Tag            guifg=#73a3b7
-hi Delimiter      guifg=#73a3b7
-hi SpecialComment guifg=#73a3b7
-hi Debug          guifg=#73a3b7
-hi Underlined     guifg=#73a3b7 gui=underline
-hi Ignore         guifg=#1d3337
-hi Error          guifg=#e85c51
-hi Todo           guifg=#152528 guibg=#5a93aa
+hi Comment        guifg=#8d8d8f
+hi Constant       guifg=#b9ab90
+hi String         guifg=#90a959
+hi Character      guifg=#90a959
+hi Number         guifg=#d49467
+hi Boolean        guifg=#d49467
+hi Float          guifg=#d49467
+hi Identifier     guifg=#88afa2
+hi Function       guifg=#bad7ff
+hi Statement      guifg=#aa759f
+hi Conditional    guifg=#aa759f
+hi Repeat         guifg=#aa759f
+hi Label          guifg=#aa759f
+hi Operator       guifg=#a6a7a9
+hi Keyword        guifg=#aa759f
+hi Exception      guifg=#aa759f
+hi PreProc        guifg=#97a3ad
+hi Include        guifg=#97a3ad
+hi Define         guifg=#97a3ad
+hi Macro          guifg=#97a3ad
+hi PreCondit      guifg=#97a3ad
+hi Type           guifg=#f4bf75
+hi StorageClass   guifg=#f4bf75
+hi Structure      guifg=#f4bf75
+hi Typedef        guifg=#f4bf75
+hi Special        guifg=#bad7ff
+hi SpecialChar    guifg=#bad7ff
+hi Tag            guifg=#bad7ff
+hi Delimiter      guifg=#bad7ff
+hi SpecialComment guifg=#bad7ff
+hi Debug          guifg=#bad7ff
+hi Underlined     guifg=#bad7ff gui=underline
+hi Ignore         guifg=#1f1f1f
+hi Error          guifg=#b46958
+hi Todo           guifg=#101010 guibg=#bad7ff
 
-hi qfLineNr      guifg=#787a7a
-hi qfFileName    guifg=#73a3b7
+hi qfLineNr      guifg=#727274
+hi qfFileName    guifg=#bad7ff
 
-hi diffAdded     guifg=#7aa4a1
-hi diffRemoved   guifg=#e85c51
-hi diffChanged   guifg=#5a93aa
-hi diffOldFile   guifg=#fda47f
-hi diffNewFile   guifg=#7aa4a1
-hi diffFile      guifg=#5a93aa
-hi diffLine      guifg=#f4937f
-hi diffIndexLine guifg=#edb1ad
+hi diffAdded     guifg=#90a959
+hi diffRemoved   guifg=#b46958
+hi diffChanged   guifg=#bad7ff
+hi diffOldFile   guifg=#f4bf75
+hi diffNewFile   guifg=#90a959
+hi diffFile      guifg=#bad7ff
+hi diffLine      guifg=#b9ab90
+hi diffIndexLine guifg=#97a3ad
 " recol:end
