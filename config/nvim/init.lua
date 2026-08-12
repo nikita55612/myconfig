@@ -422,35 +422,35 @@ if #lspservers_ensure_installed > 0 then
 end
 
 -- recol:start
--- No Clown Fiesta
+-- Rose Pine
 local function applyRecolTheme()
     vim.cmd("highlight clear")
     if vim.fn.has("syntax_on") then vim.cmd("syntax reset") end
     local P = {
-        black   = { "#151515", "#727272", "#393939" },
-        red     = { "#b46958", "#7e97ab", "#c08072" },
-        green   = { "#90a959", "#90a959", "#a1b673" },
-        yellow  = { "#f4bf75", "#f4bf75", "#f6c98a" },
-        blue    = { "#bad7ff", "#bad7ff", "#c5ddff" },
-        magenta = { "#aa759f", "#aa759f", "#b78aae" },
-        cyan    = { "#88afa2", "#88afa2", "#9abbb0" },
-        white   = { "#e1e1e1", "#afafaf", "#e6e6e6" },
-        orange  = { "#d49467", "#b9ab90", "#dba57f" },
-        pink    = { "#cba59d", "#97a3ad", "#d3b3ac" },
-        bg = { "#050505", "#101010", "#1f1f1f", "#2f2f2f", "#4b4b4b" },
-        fg = { "#eff0f3", "#e0e1e4", "#a6a7a9", "#727274" },
-        sel = { "#303031", "#303031" },
+        black   = { "#26233a", "#6e6a86", "#484559" },
+        red     = { "#eb6f92", "#eb6f92", "#ee85a3" },
+        green   = { "#31748f", "#31748f", "#518aa0" },
+        yellow  = { "#f6c177", "#f6c177", "#f7cb8c" },
+        blue    = { "#9ccfd8", "#9ccfd8", "#abd6de" },
+        magenta = { "#c4a7e7", "#c4a7e7", "#cdb5eb" },
+        cyan    = { "#ebbcba", "#ebbcba", "#eec6c5" },
+        white   = { "#e0def4", "#e0def4", "#e5e3f6" },
+        orange  = { "#f19885", "#f19885", "#f3a898" },
+        pink    = { "#e6a7c3", "#e6a7c3", "#eab5cc" },
+        bg = { "#111019", "#191724", "#242133", "#2e2b43", "#423d5f" },
+        fg = { "#eae8ff", "#e0def4", "#aaa8b9", "#797884" },
+        sel = { "#383644", "#383644" },
         cur = { 
-            bg = "#e0e1e4",
-            fg = "#18191b",
+            bg = "#e0def4",
+            fg = "#191724",
         },
-        comment = "#8d8d8f",
-        status_line = "#050505",
+        comment = "#908ea1",
+        status_line = "#111019",
         diff = {
-            add = "#63733f",
-            delete = "#7b4a3f",
-            change = "#7f91ab",
-            text = "#6c4d66",
+            add = "#29536a",
+            delete = "#a2506c",
+            change = "#6e8f99",
+            text = "#806d99",
         }
     }
     local spec = {

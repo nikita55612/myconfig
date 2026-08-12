@@ -222,6 +222,11 @@ rpass() {
 }
 
 ts() {
+    if [[ "$1" == "main" ]]; then
+        tmux new -A -s main
+        return 0
+    fi
+
     local project_dir="${1:-$PWD}"
     local session_name pane_left
 
