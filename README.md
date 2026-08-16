@@ -17,6 +17,11 @@ Personal configuration files managed with a simple sync script.
 ```text
 .
 ├── config
+│   ├── .bashrc
+│   ├── .gitconfig
+│   ├── .tmux.conf
+│   ├── .vimrc
+│   ├── .zshrc
 │   ├── alacritty
 │   │   └── alacritty.toml
 │   ├── ghostty
@@ -30,8 +35,7 @@ Personal configuration files managed with a simple sync script.
 │   │       ├── ripple_rectangle_cursor.glsl
 │   │       └── sonic_boom_cursor.glsl
 │   ├── nvim
-│   │   ├── init.lua
-│   │   └── nvim-pack-lock.json
+│   │   └── init.lua
 │   └── yazi
 │       ├── keymap.toml
 │       └── yazi.toml
