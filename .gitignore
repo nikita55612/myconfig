@@ -1,0 +1,11 @@
+# Neovim package cache
+config/nvim/nvim-pack-lock.json
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*~
+
+# Backups
+*.bak
+*.backup
