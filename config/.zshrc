@@ -21,6 +21,10 @@ fi
 
 export PI_TELEMETRY=0
 
+export LLAMA_SERVER_PORT=8888
+export LLAMA_BASE_URL=http://127.0.0.1:$LLAMA_SERVER_PORT
+export LLAMA_API_KEY=
+
 alias e="$EDITOR"
 alias c="clear"
 alias q="exit"
@@ -154,14 +158,12 @@ y() {
 
 myip() {
     local out
-
     local curl_args=(
         curl
         -fsSL
         --max-time 3
         --retry 1
     )
-
     out=$(
         "${curl_args[@]}" https://api.myip.com 2>/dev/null |
         jq -er '"\(.ip)\n\(.country), \(.cc)"'
@@ -169,7 +171,6 @@ myip() {
         printf '%s\n' "$out"
         return 0
     }
-
     out=$(
         "${curl_args[@]}" https://ipwho.is/ 2>/dev/null |
         jq -er 'select(.success == true) |
@@ -178,7 +179,6 @@ myip() {
         printf '%s\n' "$out"
         return 0
     }
-
     out=$(
         "${curl_args[@]}" https://ipapi.co/json/ 2>/dev/null |
         jq -er '"\(.ip)\n\(.country_name), \(.country_code)"'
@@ -186,7 +186,6 @@ myip() {
         printf '%s\n' "$out"
         return 0
     }
-
     echo "Error: failed to retrieve IP information from all sources." >&2
     return 1
 }
@@ -269,10 +268,6 @@ ts() {
         tmux attach -t "$session_name"
     fi
 }
-
-export LLAMA_SERVER_PORT=8888
-export LLAMA_BASE_URL=http://127.0.0.1:$LLAMA_SERVER_PORT
-export LLAMA_API_KEY=
 
 run-llama-server() {
     llama-server \
