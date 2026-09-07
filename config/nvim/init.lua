@@ -230,22 +230,28 @@ vim.api.nvim_create_autocmd("TermOpen", {
 --     vim.keymap.set("n", "<leader>f", ":Fd ")
 -- end
 
+local function open_float(buf, title, size)
+    local width = math.floor(vim.o.columns * size.width)
+    local height = math.floor(vim.o.lines * size.height)
+    local win = vim.api.nvim_open_win(buf, true, {
+        relative = "editor",
+        width = width,
+        height = height,
+        row = math.floor((vim.o.lines - height - 3) / 2),
+        col = math.floor((vim.o.columns - width) / 2),
+        border = "rounded",
+        title = " " .. title .. " ",
+        title_pos = "center",
+    })
+    vim.cmd.startinsert()
+    return win
+end
+
 if vim.fn.executable("recol") == 1 then
     local function launch_interactive_mode()
-        local width = math.floor(vim.o.columns * 0.75)
-        local height = math.floor(vim.o.lines * 0.75)
         local buf = vim.api.nvim_create_buf(false, true)
-        local win = vim.api.nvim_open_win(buf, true, {
-            relative = "editor",
-            width = width,
-            height = height,
-            row = math.floor((vim.o.lines - height - 3) / 2),
-            col = math.floor((vim.o.columns - width) / 2),
-            border = "rounded",
-            title = " Recol ",
-            title_pos = "center",
-        })
         vim.bo[buf].bufhidden = "wipe"
+        local win = open_float(buf, "Recol", { width = 0.8, height = 0.75 })
         vim.fn.termopen({ "recol", "-i", "--quit-on-select" }, {
             on_exit = function()
                 vim.schedule(function()
@@ -256,9 +262,7 @@ if vim.fn.executable("recol") == 1 then
                 end)
             end,
         })
-        vim.cmd.startinsert()
     end
-
     vim.api.nvim_create_user_command("Recol", function(opts)
         local args = vim.split(opts.args, "%s+", { trimempty = true })
         local is_interactive_mode = vim.tbl_contains(args, "-i") or vim.tbl_contains(args, "--interactive")
@@ -268,46 +272,24 @@ if vim.fn.executable("recol") == 1 then
         vim.cmd("!recol " .. opts.args)
         vim.cmd.source("~/.config/nvim/init.lua")
     end, { nargs = "*" })
-
     vim.api.nvim_create_user_command("RecolOpen", function()
         launch_interactive_mode()
     end, { nargs = 0 })
-
-    vim.keymap.set("n", "<leader>x", function()
-        local buf = vim.api.nvim_create_buf(false, true)
-        local win = vim.api.nvim_open_win(buf, true, {
-            relative = "editor",
-            width = 80,
-            height = 20,
-            row = 2,
-            col = 4,
-            border = "rounded",
-        })
-        vim.fn.termopen({ "recol", "-i" }, {
-            on_exit = function()
-                vim.schedule(function()
-                    if vim.api.nvim_win_is_valid(win) then
-                        vim.api.nvim_win_close(win, true)
-                    end
-                    vim.cmd("source ~/.config/nvim/init.lua")
-                end)
-            end,
-        })
-        vim.cmd.startinsert()
-    end)
 end
 
 if vim.fn.executable("pi") == 1 then
-    vim.keymap.set("n", "gp", function()
+    vim.keymap.set("n", "<leader>af", function()
         local filepath = vim.api.nvim_buf_get_name(0)
         if filepath == "" then
             return
         end
         vim.cmd("update")
-        local prompt = [[Find a line starting with "Pi:" (possibly commented per this file's syntax).
-If present: apply it as an edit instruction, preserving existing style,
-then delete that line. If absent: no changes.
-Reply with one short line stating what changed, nothing else.]]
+        if vim.fn.system({ "grep", "-q", "Pi:", filepath }) and vim.v.shell_error ~= 0 then
+            vim.notify("No 'Pi:' instruction found", vim.log.levels.ERROR)
+            return
+        end
+        local prompt =
+        [[Find the line starting with "Pi:" (possibly commented per this file's syntax). Apply it as an edit instruction, preserving existing style, then delete that line. Reply with one short line stating what changed, nothing else.]]
         vim.system({
             "pi",
             "@" .. filepath,
@@ -327,41 +309,26 @@ Reply with one short line stating what changed, nothing else.]]
             end)
         end)
     end)
-    local function launch_pi(args)
-        local width = math.floor(vim.o.columns * 0.75)
-        local height = math.floor(vim.o.lines * 0.75)
-        local buf = vim.api.nvim_create_buf(false, true)
-        local win = vim.api.nvim_open_win(buf, true, {
-            relative = "editor",
-            width = width,
-            height = height,
-            row = math.floor((vim.o.lines - height - 3) / 2),
-            col = math.floor((vim.o.columns - width) / 2),
-            border = "rounded",
-            title = " Pi ",
-            title_pos = "center",
-        })
-        vim.bo[buf].bufhidden = "wipe"
-        vim.fn.termopen(vim.list_extend({ "pi" }, args or {}), {
+    local pi_buf, pi_win
+    vim.keymap.set("n", "<leader>ao", function()
+        if pi_win and vim.api.nvim_win_is_valid(pi_win) then
+            vim.api.nvim_win_close(pi_win, true)
+            pi_win = nil
+            return
+        end
+        if pi_buf and vim.api.nvim_buf_is_valid(pi_buf) then
+            pi_win = open_float(pi_buf, "Pi", { width = 0.8, height = 0.75 })
+            return
+        end
+        pi_buf = vim.api.nvim_create_buf(false, true)
+        vim.bo[pi_buf].bufhidden = "hide"
+        pi_win = open_float(pi_buf, "Pi", { width = 0.8, height = 0.75 })
+        vim.fn.termopen("pi", {
             on_exit = function()
-                vim.schedule(function()
-                    if vim.api.nvim_win_is_valid(win) then
-                        vim.api.nvim_win_close(win, true)
-                    end
-                end)
+                pi_buf, pi_win = nil, nil
             end,
         })
-        vim.cmd.startinsert()
-    end
-    vim.api.nvim_create_user_command("Pi", function(opts)
-        launch_pi(vim.split(opts.args, "%s+", { trimempty = true }))
-    end, { nargs = "*" })
-    vim.api.nvim_create_user_command("PiContinue", function()
-        launch_pi({ "-c" })
-    end, { nargs = 0 })
-    vim.api.nvim_create_user_command("PiResume", function()
-        launch_pi({ "-r" })
-    end, { nargs = 0 })
+    end, { desc = "Toggle Pi window" })
 end
 
 -- Pack Delete and Update commands are built-in on Nightly 0.13
